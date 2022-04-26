@@ -9,7 +9,7 @@ export const postUrl = (newUrl) => {
     headers: {'Content-Type': 'application/json'},
     body: JSON.stringify(newUrl)
   })
-    .then(response => response.json)
+    .then(response => response.json())
 }
 
 export default {getUrls, postUrl};
