@@ -45,7 +45,6 @@ class UrlForm extends Component {
         />
           <button name="submit" onClick={e => this.handleSubmit(e)}>
             Shorten Please!</button>
-
       </form>
     )
   }
