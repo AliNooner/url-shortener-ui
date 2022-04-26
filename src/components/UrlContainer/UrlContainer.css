@@ -1,7 +1,11 @@
 .url {
   border: 1px solid black;
   display: inline-block;
-  margin: 10px;
-  padding: 5px;
-  background-color: #FFF;
+  margin: 15px;
+  background-color: white;
+  width: 50%;
+}
+
+.long-url{
+  overflow: scroll;
 }
