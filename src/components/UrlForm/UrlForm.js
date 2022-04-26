@@ -14,9 +14,20 @@ class UrlForm extends Component {
     this.setState({ [event.target.name]: event.target.value });
   }
 
-  handleSubmit = (event) => {
+submitUrl = (event) => {
     event.preventDefault();
+    const newUrl = {
+      id: Date.now(),
+      ...this.state
+    }
+    this.props.addNewUrl(newUrl)
     this.clearInputs();
+
+    fetch('/api/v1/urls', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json'},
+      body: JSON.stringify(newUrl)
+    })
   }
 
   clearInputs = () => {
@@ -45,7 +56,7 @@ class UrlForm extends Component {
           onChange={event => this.handleNameChange(event)}
         />
 
-        <button onClick={(event) => this.handleSubmit(event)}>
+        <button onClick={(event) => this.submitUrl(event)}>
           Shorten Please!
         </button>
       </form>
